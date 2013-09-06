@@ -39,22 +39,9 @@ var video_googleio2013 = document.getElementById("video_googleio2013");
 
 var audio_ativo = new Audio();
 var audio_inativo = new Audio();
-var audio_hidrocor = new Audio();
-var audio_olaluis = new Audio();
-var audio_pizza = new Audio();
 
-
-
-audio_ativo.src = "media/oicasa2.mp3";
-audio_inativo.src = "media/audio_inativo2.mp3";
-
-
-audio_hidrocor.src = "media/hidrocor1.mp3";
-audio_olaluis.src = "media/olaluis.mp3";
-audio_pizza.src = "media/pizza.mp3";
-
-
-
+audio_ativo.src = "media/oicasa.mp3";
+audio_inativo.src = "media/audio_inativo.mp3";
 
 
 
@@ -102,16 +89,6 @@ var COR_CIANO = []; //rgbToHsl(0, 255, 255);
 var COR_BRANCA = []; //rgbToHsl(255, 255, 255);
 var COR_AMARELA = []; //rgbToHsl(255, 255, 125);
 
-
-//olaluis.mp3
-//hidrocor.mp3
-
-
-
-
-
-//TODO: pegar mudanca de slide
-//TODO: pegar 
 
 
 
@@ -169,12 +146,7 @@ var limpar_timers = function(){
 
 
 
-var tmr_countdown_2013to1962 = null;
-var tmr_countdown_1962to2013 = null;
-var tmr_audio_hidrocor = null;
-var tmr_democasa = null;
 var tmr_duvidas = null;
-var tmr_demoamigo = null;
 
 
 
@@ -207,16 +179,6 @@ document.addEventListener('slideenter', function(e) {
       break;
 
 
-
-    case "demomusica":
-      //set_group_state(true, null, null, null, "colorloop");
-      audio_hidrocor.currentTime = 0;
-      audio_hidrocor.play();
-      break;
-
-    case "demomusicaespera":
-      //set_group_state(false);
-      break;
 
     case "assistirfilme":
       //set_group_state(false);
@@ -273,7 +235,6 @@ current_slide = 0;
 SLIDE_CAMERA = 1;
 SLIDE_ODISSEIA = 2;
 SLIDE_HALLKILLS = 3;
-SLIDE_HIDROCOR = 4;
 
 
 
@@ -317,9 +278,7 @@ lang = "pt-BR";
     "okey casa",
     "mestre mandou",
 
-    "burrinha",
     "burra",
-    "tapada",
 
 
 
@@ -369,7 +328,6 @@ lang = "pt-BR";
 
 
 
-
     "como era 2011",
     "como era em 2011",
     "dois mil e onze",
@@ -395,53 +353,6 @@ lang = "pt-BR";
 
 
 
-/*
-    "acender luz",
-    "acender a luz",
-    "acender luzes",
-    "acenda as luzes",
-
-    "apagar luz",
-    "apagar a luz",
-    "apagar luzes",
-
-    "desligar luz",
-    "desligar a luz",
-    "desligar luzes",
-
-    "cor leitura",
-    "cor para leitura",
-    "como leitura",
-
-    "modo balada",
-    "moto balada",
-
-
-
-    "abrir porta",
-    "abrir",
-
-    "fechar porta",
-    "fechar",
-
-    "ligar música",
-    "tocar música",
-    "começar música",
-
-    "parar música",
-    "parar",
-
-
-    "tocar filme",
-    "começar filme",
-    "começar o filme",
-
-*/
-
-
-    "parar filme",
-    "parar o filme",
-    "para filme",
 
     "voltar para início",
     "voltar para o início",
@@ -510,9 +421,7 @@ function executar_comando(comando, args) {
         comando_on();
         break;
 
-      case "burrinha":
       case "burra":
-      case "tapada":
         contador_burra++;
         var prefix = "já é a "+contador_burra+"ª vez que você me chama assim. ";
         switch(contador_burra) {
@@ -804,40 +713,6 @@ function executar_comando(comando, args) {
 
 
 
-
-
-/*
-          case "ligar música":
-          case "tocar música":
-          case "começar música":
-            window.slidedeck.loadSlide(slides.indexOf("demomusica")+1);
-            break;
-
-          case "parar música":
-          case "parar":
-            stop_tudo();
-            window.slidedeck.loadSlide(1);
-            break;
-
-          case "tocar filme":
-          case "começar filme":
-          case "começar o filme":
-            window.slidedeck.loadSlide(slides.indexOf("assistirfilme")+1);
-            break;
-
-          case "parar filme":
-          case "parar o filme":
-          case "para filme":
-            stop_tudo();
-            window.slidedeck.loadSlide(1);
-            break;
-
-*/
-
-
-
-
-
           case "voltar para início":
           case "voltar para o início":
           case "recomeçar apresentação":
@@ -1041,7 +916,7 @@ function falar(texto, callback) {
 
   recognition.onresult = function(event) {
 
-    //TODO: verificar comandos aqui
+    // verificar comandos aqui
     for (var i = event.resultIndex; i < event.results.length; ++i) {
       var r = event.results[i];
       for (var j = 0; j< r.length; j++) {
@@ -1057,12 +932,6 @@ function falar(texto, callback) {
 
           }
         }
-/*
-        if (r[j].transcript.indexOf("oi casa")!= -1) {
-          console.log("COMANDO ATIVO");
-          return;
-        }
-*/
 
       }
 
@@ -1076,22 +945,6 @@ function falar(texto, callback) {
 
     }
 
-/*
-    var interim_transcript = '';
-    for (var i = event.resultIndex; i < event.results.length; ++i) {
-      if (event.results[i].isFinal) {
-        final_transcript += event.results[i][0].transcript;
-      } else {
-        interim_transcript += event.results[i][0].transcript;
-      }
-    }
-    final_transcript = capitalize(final_transcript);
-    final_span.innerHTML = linebreak(final_transcript);
-    interim_span.innerHTML = linebreak(interim_transcript);
-    if (final_transcript || interim_transcript) {
-      showButtons('inline-block');
-    }
-    */
   };
 
 
@@ -1121,183 +974,6 @@ var str2ab=function(str) {
 var ab2str=function(buf) {
   return String.fromCharCode.apply(null, new Uint8Array(buf));
 };
-
-
-
-/*
-function getCamera() {
-  navigator.webkitGetUserMedia({audio: false, video: true}, function(stream) {
-    video_camera.src = webkitURL.createObjectURL(stream);
-  }, function(e) {
-    console.error(e);
-  });
-}
-
-getCamera();
-*/
-
-
-// >>>>>> USAR PROXY EM PROCESSING! <<<<<<<
-
-
-
-
-
-var SERVER_SOCKET = 0;
-
-chrome.socket.create('udp', null, function(createInfo){
-    SERVER_SOCKET = createInfo.socketId;
-
-
-    chrome.socket.bind(SERVER_SOCKET, "127.0.0.1", 6001, function(result){
-      console.log('chrome.socket.bind: result = ' + result.toString());
-
-      chrome.socket.sendTo(SERVER_SOCKET, str2ab('door_open'), "127.0.0.1", 6000, function callback(r){console.log(r);});
-      setTimeout(function(){
-        
-        chrome.socket.sendTo(SERVER_SOCKET, str2ab('door_close'), "127.0.0.1", 6000, function callback(r){console.log(r);});
-
-      }, 3000);
-    });
-
-
-    function read()
-    {
-        chrome.socket.recvFrom(SERVER_SOCKET, 1024, function(recvFromInfo){
-            console.log('Server: recvFromInfo: ', recvFromInfo, 'Message: ', ab2str(recvFromInfo.data));
-
-            if(recvFromInfo.resultCode >= 0)
-            {
-
-              var comando = "";
-
-              console.log("UDP", ab2str(recvFromInfo.data).replace("\n", ""));
-
-              switch(ab2str(recvFromInfo.data).replace("\n", "")) {
-                case "sensor_high":
-                  console.log("sensor_high");
-                  //console.log("eh slide certo? ", window.slidedeck.curSlide_ == slides.indexOf("demoamigo"));
-
-                  if (tocou_aviso_amigo) return;
-
-                  falar("Tem alguém na tua porta. Gostaria de abrir?");
-                  tocou_aviso_amigo = true;
-
-                  //window.slidedeck.loadSlide(slides.indexOf("demoamigo")+1);
-                  //window.slidedeck.nextSlide();
-
-                  setTimeout(function(){
-                    console.log("encerrou timer de aviso de amigo");
-                    tocou_aviso_amigo = false;
-                  }, 1000 * 15);
-                  
-
-                  /*
-
-
-                  if (window.slidedeck.curSlide_+1 == slides.indexOf("demoporta"))
-                  {
-
-                  }
-                  */
-
-
-                  //comando = "door_open";
-                  //set_lamp_state("1", true, 255, 0, 0, "none", null, null);
-
-                  //window.slidedeck.loadSlide(SLIDE_CAMERA);
-                  break;
-
-                case "sensor_low":
-                  console.log("sensor_low");
-                  //comando = "door_close";
-                  //set_lamp_state("1", false);
-                  //TODO: incluir timer de 10 SEGUNDOS para apagar!!!!
-                  break;
-
-                case "hidrocor":
-                  window.slidedeck.loadSlide(slides.indexOf("demomusica")+1);
-                  break;
-
-
-                case "2001odisseia":
-                  window.slidedeck.loadSlide(slides.indexOf("assistirfilme")+1);
-                  break;
-
-                default:
-                  comando = "FAIL";
-              }
-
-              if (comando != "")
-
-                chrome.socket.sendTo(SERVER_SOCKET, str2ab(comando), "127.0.0.1", 6000, function callback(r){console.log(r);});
-              
-              read();
-            }
-            else
-                console.error('Server read error!');
-
-
-        });
-    }
-
-    read();    
-
-
-});
-
-
-
-
-
-
-
-
-
-
-/*
-
-
-    chrome.socket.bind(serverSocket, "255.255.255.255", 6000, function(result){
-        console.log('chrome.socket.bind: result = ' + result.toString());
-
-                
-
-    });
-
-    function read()
-    {
-        chrome.socket.recvFrom(serverSocket, 1024, function(recvFromInfo){
-            console.log('Server: recvFromInfo: ', recvFromInfo, 'Message: ', 
-                ab2str(recvFromInfo.data));
-            if(recvFromInfo.resultCode >= 0)
-            {
-                chrome.socket.sendTo(serverSocket, 
-                    str2ab('Received message from client ' + recvFromInfo.address + 
-                    ':' + recvFromInfo.port.toString() + ': ' + 
-                    ab2str(recvFromInfo.data)), 
-                    recvFromInfo.address, recvFromInfo.port, function(){});
-                read();
-            }
-            else
-                console.error('Server read error!');
-        });
-    }
-
-    read();
-
-
-});
-*/
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1468,9 +1144,6 @@ var requestColorChange=function(colorHex, transitionMs) {
   msUntilChange=transitionMs;
 
 
-
-
-
 }
 
 var convertColor=function(str) {
@@ -1609,43 +1282,6 @@ addVisibilityChangeListener(document.querySelectorAll("slide"),
         }
       }
   });
-
-
-/*
-
-addVisibilityChangeListener([document.getElementById('move_icons')], 
-  function(element) {
-      var current=element.className.indexOf("build-current")>=0;
-      var p=element.parentElement;
-      var i1=p.querySelector("#icon1");
-      if (current && i1.style.position!='absolute') {
-        document.getElementById('offline_title').innerText="Chrome Apps: offline first"
-        p.style.position='relative';
-        var i3=p.querySelector("#icon3");
-        var i2=p.querySelector("#icon2");
-        var i_appcache=p.querySelector("#icon_appcache");
-        i1.style.position=i2.style.position=i3.style.position=i_appcache.style.position='absolute';
-        i1.style.left='142px';
-        i_appcache.style.left='349px';
-        i2.style.left='524px';
-        i3.style.left='699px';
-        i_appcache.style.top='100px';
-        i1.style.webkitTransition=
-        i2.style.webkitTransition=
-        i3.style.webkitTransition=
-        i_appcache.style.webkitTransition=
-        '1s';
-        setTimeout(function() {
-          i1.style.left='630px';
-          i2.style.left='420px';
-          i3.style.left='160px';
-          i_appcache.style.top='2000px';
-          i1.offsetWidth=i1.offsetWidth;  
-        }, 5);
-      }
-  });
-*/
-
 
 
 
