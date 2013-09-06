@@ -1,0 +1,31 @@
+{
+  "manifest_version": 2,
+  "name": "Front-End Meetup #1",
+  "description": "apresentação no Front-End Meetup",
+  "version": "1.0",
+  "minimum_chrome_version": "23",
+  "app": {
+    "background": {
+      "scripts": ["js/main.js"]
+    }
+  },
+  "icons": {
+    "16": "images/icon-16.png",
+    "128": "images/icon-128.png"
+  },
+  "permissions": [
+    "storage",
+    "serial",
+    "audioCapture",
+    "videoCapture",
+    "<all_urls>",
+    /*"https://www.meethue.com/api/nupnp",*/
+
+    { "socket": [
+      "udp-bind",
+      "udp-send-to"
+      ]
+
+    }
+  ]
+}
