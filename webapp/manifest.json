@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Oi Casa",
-  "description": "Apresentação \"oi casa\" realizada no Meetup de Front-End dia 26/08/2013 pelo GDG São Paulo",
+  "description": "Apresentação \"Oi casa\" realizada no Meetup de Front-End dia 26/08/2013 pelo GDG São Paulo",
   "version": "1.0",
   "minimum_chrome_version": "23",
   "app": {
@@ -17,6 +17,6 @@
     "storage",
     "serial",
     "audioCapture",
-    "<all_urls>",
+    "<all_urls>"
   ]
 }
