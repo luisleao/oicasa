@@ -126,9 +126,6 @@ var stop_tudo = function() {
   if (!video_odisseia.paused) video_odisseia.pause();
   if (!video_googleio2013.paused) video_googleio2013.pause();
 
-  //apagar cor
-  chrome.socket.sendTo(SERVER_SOCKET, str2ab('color_black'), "127.0.0.1", 6000, function callback(r){console.log(r);});
-
 }
 
 
@@ -949,33 +946,6 @@ function falar(texto, callback) {
 
 
   recognition.start();
-
-
-
-
-
-
-/* * * * * * * * * * * * * * * * * * * *  CONFIGURANDO UDP  * * * * * * * * * * * * * * * * * * * */
-
-var socket = chrome.socket;
-
-
-// From https://developer.chrome.com/trunk/apps/app_hardware.html
-var str2ab=function(str) {
-  var buf=new ArrayBuffer(str.length);
-  var bufView=new Uint8Array(buf);
-  for (var i=0; i<str.length; i++) {
-    bufView[i]=str.charCodeAt(i);
-  }
-  return buf;
-}
-
-// From https://developer.chrome.com/trunk/apps/app_hardware.html
-var ab2str=function(buf) {
-  return String.fromCharCode.apply(null, new Uint8Array(buf));
-};
-
-
 
 
 

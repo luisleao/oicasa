@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
-  "name": "Front-End Meetup #1",
-  "description": "apresentação no Front-End Meetup",
+  "name": "Oi Casa",
+  "description": "Apresentação \"oi casa\" realizada no Meetup de Front-End dia 26/08/2013 pelo GDG São Paulo",
   "version": "1.0",
   "minimum_chrome_version": "23",
   "app": {
@@ -17,15 +17,6 @@
     "storage",
     "serial",
     "audioCapture",
-    "videoCapture",
     "<all_urls>",
-    /*"https://www.meethue.com/api/nupnp",*/
-
-    { "socket": [
-      "udp-bind",
-      "udp-send-to"
-      ]
-
-    }
   ]
 }
