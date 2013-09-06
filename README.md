@@ -25,5 +25,5 @@ limitations under the License.
 
 
 ## Screenshot
-![screenshot](https://raw.github.com/oicasa/master/webapp/images/screenshot_1554_1014.png)
+![screenshot](https://raw.github.com/luisleao/oicasa/master/webapp/images/screenshot_1554_1014.png)
 
